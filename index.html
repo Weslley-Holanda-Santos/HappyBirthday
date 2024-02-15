@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/happy-birthday-32x32.png">
+    <title>Happy Birthday</title>
+</head>
+<body>
+    <div class="container">
+        <img src="img/foto.jpeg" alt="Aniversariante">
+        <h2>Happy Birthday</h2>
+    </div>
+    <audio autoplay loop id="background-music">
+        <source src="audio/Happy Birthday (Patty Hill - Mildred J. Hill).mp3" type="audio/mpeg">
+    </audio>
+    <script src="js/confetti.js"></script>
+    <script>
+          const start = () => {
+        setTimeout(function() {
+        confetti.start()
+        }, 1000);
+        };
+
+        // Função para parar a chuva de confetes
+        const stop = () => {
+        confetti.stop();
+        };
+
+        // Iniciar a chuva de confetes quando a página carregar
+        window.onload = function() {
+        start();
+        };
+
+        // Evento de escuta para detectar quando a música termina
+        const audio = document.getElementById('background-music');
+        audio.addEventListener('ended', function() {
+        stop(); // Parar os confetes quando a música terminar
+        });
+    </script>
+</body>
+</html>

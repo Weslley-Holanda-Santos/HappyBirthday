@@ -1,0 +1,12 @@
+@media only screen and (max-width: 768px) {
+    img {
+        width: 90%; /* Ajuste para telas menores */
+        margin-bottom: 10px; /* Reduzindo o espaço entre a imagem e o texto */
+    }
+    h2 {
+        font-size: 3em; /* Reduzindo ainda mais o tamanho do texto */
+        letter-spacing: 8px; /* Ajustando o espaçamento entre as letras */
+        margin-top: 10px; /* Reduzindo o espaço entre o texto e a imagem */
+    }
+
+}

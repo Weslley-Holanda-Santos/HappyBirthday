@@ -13,31 +13,44 @@
         <img src="img/foto.jpeg" alt="Aniversariante">
         <h2>Happy Birthday</h2>
     </div>
-    <audio autoplay loop id="background-music">
+    <audio id="background-music" loop>
         <source src="audio/Happy Birthday (Patty Hill - Mildred J. Hill).mp3" type="audio/mpeg">
     </audio>
     <script src="js/confetti.js"></script>
     <script>
-          const start = () => {
-        setTimeout(function() {
-        confetti.start()
-        }, 1000);
-        };
+        // Função para solicitar permissão de reprodução automática
+        function solicitarPermissaoAutoplay() {
+            var audio = document.getElementById('background-music');
+            audio.play().then(() => {
+                // Autoplay bem-sucedido, iniciar confetes ou qualquer outra ação desejada
+                startConfetti();
+            }).catch((error) => {
+                // Autoplay não permitido pelo usuário, trate aqui de acordo com suas necessidades
+                console.log('Reprodução automática não permitida: ', error);
+            });
+        }
+
+        // Função para iniciar a chuva de confetes
+        function startConfetti() {
+            setTimeout(function() {
+                confetti.start();
+            }, 1000);
+        }
 
         // Função para parar a chuva de confetes
-        const stop = () => {
-        confetti.stop();
-        };
-
-        // Iniciar a chuva de confetes quando a página carregar
-        window.onload = function() {
-        start();
-        };
+        function stopConfetti() {
+            confetti.stop();
+        }
 
         // Evento de escuta para detectar quando a música termina
         const audio = document.getElementById('background-music');
         audio.addEventListener('ended', function() {
-        stop(); // Parar os confetes quando a música terminar
+            stopConfetti(); // Parar os confetes quando a música terminar
+        });
+
+        // Solicitar permissão de reprodução automática quando o documento estiver pronto
+        document.addEventListener('DOMContentLoaded', function() {
+            solicitarPermissaoAutoplay();
         });
     </script>
 </body>

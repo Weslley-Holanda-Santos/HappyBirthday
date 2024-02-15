@@ -26,6 +26,7 @@ img {
     width: 300px;
     animation: animate-img 5s linear infinite;
     margin-bottom: 20px;
+    
 }
 
 h2 {
@@ -38,6 +39,30 @@ h2 {
     outline: none;
     animation: animate 5s linear infinite;
     margin-top: 20px;
+    margin-bottom: 20px;
+    filter: blur(0.5px);
+}
+
+button {
+    max-width: 100%;
+    border: 10px solid #03bcf4;
+    border-radius: 20px;
+    width: 300px;
+    margin-top: 10px;
+    background-color: transparent;
+    color: inherit;
+    font-family: inherit;
+    font-size: 1.5em;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    animation: animate 5s linear infinite;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: rgba(3, 188, 244, 0.1);
 }
 
 @keyframes animate {
